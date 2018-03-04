@@ -1,7 +1,22 @@
 import React from 'react';
+import Greetings from './Greetings';
+import Header from './Header';
+import { Switch, Route } from 'react-router-dom';
+import SignupPage from './signup/SignupPage'
 
-export default () => {
-  return (
-    <h1>Hello World from App</h1>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+      <div className='container'>
+        <Header />
+        <Switch>
+          <Route exact path='/' component={Greetings} />
+          <Route path='/signup' component={SignupPage} />
+        </Switch>
+      </div>
+    );
+  }
 }
+
+export default App;
