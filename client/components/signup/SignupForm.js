@@ -48,6 +48,10 @@ class SignupForm extends React.Component {
       this.props.userSignupRequest(this.state)
       .then(
         () => { 
+          this.props.addFlashMessage({
+            type: 'success',
+            text: 'You have signed up successfully!'
+          })
           this.setState({isLoading: false});
           this.props.history.push('/')
         },
@@ -85,7 +89,6 @@ class SignupForm extends React.Component {
           field='password'
           error={errors.password}
           label='Password'
-          type='password'
           value={password}
           onChange={this.onChange}
         />
@@ -121,7 +124,11 @@ class SignupForm extends React.Component {
 }
 
 SignupForm.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired
+  userSignupRequest: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
 }
 
 export default SignupForm;
