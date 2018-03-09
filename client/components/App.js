@@ -3,6 +3,7 @@ import Greetings from './Greetings';
 import Header from './Header';
 import { Switch, Route } from 'react-router-dom';
 import SignupPage from './signup/SignupPage'
+import FlashMessagesList from "./flash/FlashMessagesList";
 
 class App extends React.Component {
 
@@ -10,6 +11,7 @@ class App extends React.Component {
     return (
       <div className='container'>
         <Header />
+        <FlashMessagesList />
         <Switch>
           <Route exact path='/' component={Greetings} />
           <Route path='/signup' component={SignupPage} />
