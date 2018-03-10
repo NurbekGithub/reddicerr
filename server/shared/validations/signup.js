@@ -1,5 +1,5 @@
 import Validator from 'validator';
-export function validateInput(data) {
+export function commonValidation(data) {
   let errors = {};
 
   if(Validator.isEmpty(data.username)) {
